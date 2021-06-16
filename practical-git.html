@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    .code {
+      width: 600px;
+      background-color: rgb(89, 89, 89);
+      border: 2px solid gray;
+      padding: 12px;
+      color: black;
+      font-weight: 150;
+    }
+
+    .mb-1 {
+      margin-bottom: 1px;
+    }
+
+    .mt-1 {
+      margin-top: 1px;
+    }
+  </style>
+  <title>Pratik Git</title>
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="home.html">Blog</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="excel.html">Excel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="religion.html">Religion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="psychology.html">Psychology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="presentation.html">Presentation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="interview.html">Interview</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="practical-git.html">Practical Git</a>
+            </li>
+            <li class="nav-item dropdown invisible">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown link
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <h1>Practical Git</h1>
+    <h5>Versiyon Nedir?</h5>
+    <p>Dökümanların zaman içerisinde uğradığı her değişikliğin ayrı bir isim altında kaydedilmesine versiyon denir. Yani dökümanın uğradığı her değişiklik yeni bir versiyonun yaratılmasına sebep olur. Dökümanları versiyonlamamızın sebebi zaman içerisinde yapılmış olan değişikliklerin takibinin yapılabilmesini sağlamaktır. Aksi takdir kalabalık bir veri yığınında ne zaman neyin eklendiğini veya çıkartıldığını bulamayız. Dolayısıyla bir projenin adım adım hangi durumlara evrildiğini görebilmek ve programı parça parça hale getirip sadece ilgili kişilerin ilgili alan üzerinde değişiklik yapmasını sağlayarak yeni versiyonlar oluşturmamızı sağlamak için 'versiyon kontrol sistemleri'ni kullanırız.</p>
+    <p>Dökümanları versiyonlama mantığı şu şekilde çalışır: Her bir değişiklik yeni bir dosya olarak kaydedilir ve her dosya birbirleriyle kıyaslanarak(compare) meydana gelen değişiklikler takip(track) edilirler.</p>
+    <p>Bu arşivi oluşturabilmemiz için dosyanın sabip bir isme fakat değişken bir versiyon numarasına ihtiyacımız vardır.</p>
+    <p>Fakat tabiki manuel olarak oluşturuduğumuz dökümanlar arasındaki farkı bulmaya çalıştığımız zaman da ciddi manada hata yapma ihtimalimiz vardır. Bu sebeple bu kıyaslamayı bizim için otomatik olarak yapacak bir programa ihtiyacımız var. Bunun için GitHub gibi büyük VKS sistemleri yokken 'Beyond Compara' gibi basit programlar kullanılıyordu.</p>
+    <p>Bu tarz programlama dosyaları veriririz onlarda içeriklerinde sonradan eklenmiş olanları(daha doğrusu mevcut iki dosya arasından farklı olan karakterleri) farklı renkte bize gösterirler. Fakat bu oldukça ilkel bir versiyon kontrol sistemidir.</p>
+
+    <h5>Versiyon Kontrolü Nedir?</h5>
+    <ul>
+      Yukarıda bahsettiğim ilkel versiyon kontrol sisteminin bir takım eksiklikleri var. Zaten bu yüzden ona ilkel diyoruz.
+      <li>Manuel olarak versiyon numarası girmek zorundayız, bu hata yapma ihtimalimizin yüksek olduğu anlamına geliyor.</li>
+      <li>Versiyon numralarını dosya isimlerinde tutmak zorundayız, bu versiyonları aramanın zor olacağı anlamına geliyor.</li>
+      <li>Her yeni bir versiyon için yeni bir dosya yaratmak zorundayız, bu zaman içerisinde inanılmaz fazla dosya oluşmasına yani dosya enflasyonuna neden olacağı anlamına geliyor.</li>
+      <li>Kimin hangi versiyonu oluşturduğunu bilmiyoruz bu o kişinin hangi değişiklikleri yaptığını takip etmemizin neredeyse imkansız olduğu anlamına geliyor. </li>
+    </ul>
+    <p>Yukarıda bir versiyon kontrol sisteminin sahip olmaması gereken problemleri gayet açık bir şekilde ifade ettik. Bu problemleri çözen bir versiyon kontrol sistemi çok rahatça büyük projeler için kullanılabilir anlamına gelmektedir.</p>
+    <p><b><i>Versiyon kontrol sistemi;</i> Bir dökümanın oluşum sürecinin ve değişik versiyonlarının takibi ve arşivlenmesi için kullanılan metot ve sistemlere verilen isimdir.</b> Yazılımcılar için biçilmiş kaftandır. Kod paylaşımını ve takibini çok kolay hale getirir.</p>
+
+    <h5>Versiyon Kontrolü Nasıl Uygulanır?</h5>
+    <p>Versiyon Kontrol Sistemi aslında bir çok işi üstlenen bir depodur. Öyleki biz sadece o depodan ihtiyaç duyduğumuz dökümanı alır ya da değişiklik yaptığımız başka bir dökümanı depoya göndeririz. Bir programcı olarak depoda neler olup bittiğinden haberimizin olmasına gerek yoktur. Depo kendi kendisine gönderdiğimiz dökümana bir versiyon numarası atar. Yani depo bu versiyonların yönetimini kendisi yapar. Tarihçesini, çetelesini tutar. :) Bu depo öyle bir merettirki gözünden hiç bir şey kaçmaz. Kim, ne zaman, ne yapmış hepsi ondan sorulur. Onun sayesinde kayıtlarda herhangi bir iz bırakmadan bir değişiklik yapmak mümkün değildir. İşte bu çok maharetli depomuza 'Repository' diyoruz.</p>
+    <p>Bu Repository programcının local'inde ya da bir server üzerinde yer alabilir. Programcı çalışmak üzere repo'dan bir döküman çektiğinde 'checkout' yapmış olur. Programcı bu dökümanı değiştirerek yeni bir versiyon yaratır ve bunu o repo'ya erişme yetkisi olan diğer programcılarla paylaşmak ister. Bunun için değiştirilen dökümanın depoya gönderilmesi gerekmektedir. Bu işleme de 'commit' ya da 'checkin' adı verilir.</p>
+    <p>Yapılan her commit bir revizyon numarasına eşittir. Bu numaralar karşılaştıldığında yapılan değişiklikler ortaya çıkar.</p>
+
+    <h5>Versiyon Kontrol Sistemleri</h5>
+    <ul>Yazılım projelerinde kullanılan meşhur VKS'leri:
+      <li>Microsoft Team Foundation Server </li>
+      <li>AWS CodeCommit</li>
+      <li>Git</li>
+      <li>Subversion</li>
+      <li>Mercurial</li>
+      <li>Vault Version Control</li>
+      <li>CVS</li>
+      Git bunların en meşhurudur.
+    </ul>
+
+    <h5>Versiyon Kontrol Sistemlerinin Mimari Modelleri</h5>
+    <ol>
+      <li>Yerel(Local) Versiyon Kontrolü</li>
+      <li>Merkezi(Central) Versiyon Kontrolü</li>
+      <li>Distributed(Distributed) Versiyon Kontrolü</li>
+    </ol>
+    <h4>Yerel(Local) Versiyon Kontrolü</h4>
+    <p>bu tür VKS'lerde tek bir dosyanın değişik versiyonları oluşturulur. Örneğin daha önce bahsettiğimiz 'Beyond Compara' bu tarz bir VKS'dir.</p>
+
+    <h4>Merkezi(Central) Versiyon Kontrolü</h4>
+    <p>Bu tür sistemlerde VKS'ler tarafından oluşturulan Repository'ler bir server üzerinde yer alırlar. Checkout ve Commit işlemleri için bu server'a bağlı olmak gerekir. Örneğin Subversion bu tarz bir VKS'dir.</p>
+
+    <h4>Distributed(Distributed) Versiyon Kontrolü</h4>
+    <p>Bu mimari diğer iki mimariyi içinde barındırır. Yani kullanıcı hiç bir sever'a bağımlı olmadan kendi Repository'sini oluşturabilir ve gerekirse başka kişilerinde bu repository'e erişebilmesini sağlayabilir. Aynı şekilde merkezi bir sunucuda bulunan Repository'yi de klonyarak kullanmak mümkündür. Burada klonlama terimi Repo'nun bir kopyasını oluşturma anlamına gelir. Klonladıktan sonra tüm değişiklikler o klon üzerinde yapılır. Yani kullanıcı artık local'de bu değişikleri yapmaya başlar. Daha sonra bu değişiklikleri 'push' deyimini kullanarak merkezi depoya gönderebilir. Aynı şekilde merkezi depoda yapılan değişikliklere yerel depoda sahip olmak için de 'pull' deyimini kullanırız. Ayrıca başka bir kişi bizim yerel depomuzdan pull işlemi yapabilir. Aynı şekilde bizde başkasının yerel deposundan pull yapabiliriz.(Kısaca sadece server olmasına gerek yok. Bu sebeple dağıtık adı verilmiştir.)</p>
+    
+    <h5>Yerel Depo Oluşturma</h5>
+    <p class="mb-1">Git ile versiyon kontrolü yapabilmek için öncelikle yerel bir depo(local repository) oluşturmamız gerekiyor:</p>
+    <div class="code">
+      [oacar@lin workspace]$ git init<br>
+      Initialized empty Git repository in /home/oacar/workspace/.git/<br>[oacar@lin workspace]$
+    </div>
+    <p class="mb-1">Yerel depoyu oluşturduğumuz dizinin içine baktığımızda boş olduğunu görüyoruz:</p>
+    <div class="code">
+      [oacar@lin workspace]$ ls -l<br>total 0
+    </div>
+    <p class="mb-1">Bu noktada yerel deponun bu klasörde olup olmadığını görebilmek için daha yakından bakmamız gerekiyor:</p>
+    <div class="code">
+      [oacar@lin workspace]$ ls -la<br>
+      total 12<br>
+      drwxr-x--- 3 oacar users 4096 Mar 26 15:21 .<br>drwx------ 3 oacar appsupp 4096 Mar 26 15:15 ..<br>drwxr-x--- 7 oacar users 4096 Mar 26 15:21 .git
+    </div>
+    <p>Git, yerel deponun yer aldığı bu dizin içerisinde bulunan dosyalar aracılığıyla yapılan tüm değişiklikleri takip eder. Bu dizin Git'in veritabanı olarak düşünülebilr.</p>
+
+    <h5>Depoya Dosya Ekleme</h5>
+    <div class="code">
+      [oacar@lin workspace]$ echo "Bu bir test..." > dosya1.txt<br>[oacar@lin workspace]$ echo "Baska bir test..." > dosya2.txt<br>[oacar@lin workspace]$ ls -l<br>total 8<br>-rw-r----- 1 oacar users 15 Mar 26 15:36 dosya1.txt<br>-rw-r----- 1 oacar users 18 Mar 26 15:36 dosya2.txt
+    </div>
+    <p class="mt-1 mb-1">Yukarda workspace isimli dizinde iki tane dosya oluşturduk. Deponun son durumunu kontrol etmek için 'status' komutu kullanılır:</p>
+    <div class="code">
+      [oacar@lin workspace]$ git status<br>On branch master<br><br>
+      Initial commit<br><br>
+      Untracked files:<br>
+      (use "git add < file >..." to include in what will be committed)
+      <br><br>
+      dosya1.txt<br>dosya2.txt<br><br>
+      nothing added to commit but untracked files present (use "git add" to track)<br>[oacar@lin workspace]$
+    </div>
+    <p class="mt-1 mb-1">'Untracked Files' bölümünde gördüğümüz dosyalar henüz depoya eklenmemiş demektir. Bunları depoya şu şekilde ekliyoruz:</p>
+    <div class="code">
+      [oacar@lin workspace]$ git add --all<br><br>
+      [oacar@lin workspace]$ git status<br>On branch master<br><br>
+      Initial commit<br><br>
+      Changes to be committed:<br>
+      (use "git rm --cached < file >..." to unstage)<br><br>
+      new file: dosya1.txt<br>new file: dosya2.txt
+    </div>
+    <p class="mt-1 mb-1">'Add' komutu ile değişikliğe uğrayan dosyaların isimlerini girerek ya da '--all' komutu ile mevcut tüm dosyaları depoya ekleyebiliriz. Fakat şuanda sadece dosyaları önbelleğe almış durumdayız. 'Changes to be commited' yani 'depoya eklenmeyi bekleyen değişikleri' gördüğümüz noktada henüz depoya değişiklikleri göndermediğimizi anlarız. Yani 'add' ile sadece 'commit' yapmak istediğimiz dosyaları bildirmiş oluyoruz. 'Commit' öncesi 'add' komutu ile ekleme yaptığımız alana 'index' ya da 'staging area' adı verilmiştir.</p>
+    <p class="mt-1 mb-1">'Add' bir kaç farklı şekilde value alır:</p>
+    <div class="code">
+      git add < dosya >; Bir dosyayı depoya eklemek için seçer.<br>
+      git add < dizin >; Tanımlanan dizin içindeki tüm dosyaları depoya eklemek için seçer.<br>
+      git add -p; İnteraktif bir şekilde depoya eklenecek dosya içeriklerinin seçilmesini sağlar.
+    </div>
+    
+
+  </div>
+
+</body>
+</html>
