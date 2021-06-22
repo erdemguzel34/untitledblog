@@ -1,12 +1,14 @@
-p, h3, h4, h5, h6, mark {
-	margin-top: 10px;
-}
-
 body {
 	background-color: #212529;
 	color: #fff;
+
 }
 
-* {
-	border: 1px solid red;
+p,
+h3,
+h4,
+h5,
+h6,
+mark {
+	margin-top: 10px;
 }
