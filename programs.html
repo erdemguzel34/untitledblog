@@ -85,7 +85,46 @@
     </nav>
 
     <h1>Untitled blog's Programs Page</h1>
-
+    
+    <form action="" class="p-4">
+      <div class="form-group row">
+        <label for="number1" class="col-sm-2 col-form-label">Number 1</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" id="number1" placeholder="Please enter first number">
+        </div>
+      </div>
+      <div class="form-group row mb-4">
+        <label for="number2" class="col-sm-2 col-form-label">Number 2</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" id="number2" placeholder="Please enter second number">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-4">
+          <input type="button" class="btn btn-primary" onclick="calculate()" value="Calculate"></input>
+        </div>
+        <div class="col-sm-4">
+          <label for="result" id="result">asdf</label>
+        </div>
+      </div>
+    </form>
   </div>
+
+
+
+    <script>
+      let number1 = document.getElementById("number1");
+      let number2 = document.getElementById("number2");
+      parseInt(number1);
+      parseInt(number2);
+
+      function calculate(number1, number2) {
+        let result = number1 + number2;
+        return document.getElementById("result").value = result;
+      }
+        
+
+
+    </script>
 </body>
 </html>
